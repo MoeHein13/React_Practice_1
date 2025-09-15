@@ -11,9 +11,9 @@ const UserList = ({ users }: userListProps) => {
     return (
       <Link to={`/users/${user.id}`} key={user.id} className="w-full">
         <div className="m-2 border text-center max-w-full px-2 rounded-xl shadow-lg cursor-pointer transition-transform duration-200 hover:-translate-y-1">
-          <p>Name : {user.name}</p>
-          <p>Email : {user.email}</p>
-          <p>Company : {user.company.name}</p>
+          <p><span className="font-semibold">Name :</span> {user.name}</p>
+          <p><span className="font-semibold">Email :</span> {user.email}</p>
+          <p><span className="font-semibold">Company :</span> {user.company.name}</p>
         </div>
       </Link>
     );
