@@ -9,7 +9,7 @@ const UserList = ({ users }: userListProps) => {
   
   const renderUser = users.map((user) => {
     return (
-      <Link to={`/user/${user.id}`} key={user.id} className="w-full">
+      <Link to={`/users/${user.id}`} key={user.id} className="w-full">
         <div className="m-2 border text-center max-w-full px-2 rounded-xl shadow-lg cursor-pointer transition-transform duration-200 hover:-translate-y-1">
           <p>Name : {user.name}</p>
           <p>Email : {user.email}</p>
