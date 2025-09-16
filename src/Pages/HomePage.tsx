@@ -24,10 +24,16 @@ export type userProps = {
 };
 const HomePage = () => {
   const [users, setUsers] = useState<userProps[]>([]);
+  const [inputValue, setInputValue] = useState("");
   const [filterUser, setFilterUser] = useState("");
 
   const handleFilter = (e: ChangeEvent<HTMLInputElement>) => {
-    setFilterUser(e.target.value);
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFilterUser(inputValue);
   };
 
   const filteredUser = users.filter((user) => {
@@ -54,7 +60,7 @@ const HomePage = () => {
   return (
     <div className="min-h-dvh bg-gray-800 text-white ">
       <div className="flex justify-center w-full ">
-        <SearchList filterUser={filterUser} handleFilter={handleFilter} />
+        <SearchList filterUser={inputValue} handleFilter={handleFilter} handleSubmit={handleSubmit} />
       </div>
       <div className="flex justify-center items-center max-w-5xl m-auto">
         <UserList users={filteredUser} />
